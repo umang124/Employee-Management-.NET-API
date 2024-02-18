@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Employee Management System Net Core API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c6a6a60ece437e28dfafff4ce84476ca17a3e41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34ff3b0f3b081b0fc89ac13799215ac89d4c367d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Employee Management System Net Core API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Employee Management System Net Core API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
