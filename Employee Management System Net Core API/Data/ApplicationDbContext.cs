@@ -13,5 +13,6 @@ namespace Employee_Management_System_Net_Core_API.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<JobHistory> JobHistories { get; set; }
         public DbSet<PerformanceEvaluation> PerformanceEvaluations { get; set; }
+        public DbSet<Gender> Genders { get; set; }
     }
 }
