@@ -63,6 +63,7 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             }
             var employeeGetDTO = new EmployeeGetDTO()
             {
+                Id = employee.Id,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 Gender = employee.Gender.Name,
