@@ -29,6 +29,7 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             {
                 var employeeGetDTO = new EmployeeGetDTO()
                 {
+                    Id = employee.Id,
                     FirstName = employee.FirstName,
                     LastName = employee.LastName,
                     Gender = employee.Gender.Name,
@@ -206,6 +207,13 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             await _db.Employees.AddAsync(model);
             await _db.SaveChangesAsync();
             return CreatedAtRoute("GetEmployee", new { id = model.Id }, employeeAdd);
+        }
+
+        [HttpGet("MaleEmployeeWithHighRating")]
+        public async Task<IActionResult> GetHighRatedMaleEmployees()
+        {
+            var highRatedMaleEmployees = await _db.HighlyRatedMaleEmployees.FromSqlRaw("EXEC GetHighlyRatedMaleEmployees").ToListAsync();
+            return Ok(highRatedMaleEmployees);
         }
     }
 }

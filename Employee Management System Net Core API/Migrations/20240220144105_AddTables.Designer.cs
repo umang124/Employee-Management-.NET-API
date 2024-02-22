@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Employee_Management_System_Net_Core_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240220072529_UpdatePerformanceEvaluationTable")]
-    partial class UpdatePerformanceEvaluationTable
+    [Migration("20240220144105_AddTables")]
+    partial class AddTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

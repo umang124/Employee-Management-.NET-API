@@ -29,6 +29,7 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             {
                 var jobHistoryGetDTO = new JobHistoryGetDTO()
                 {
+                    Id = jobHistory.Id,
                     EmployeeName = jobHistory.Employee.FirstName + " " + jobHistory.Employee.LastName,
                     Email = jobHistory.Employee.Email,
                     Department = jobHistory.Department,
@@ -61,6 +62,7 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             }
             var jobHistoryGetDTO = new JobHistoryGetDTO()
             {
+                Id = jobHistory.Id,
                 EmployeeName = jobHistory.Employee.FirstName + " " + jobHistory.Employee.LastName,
                 Email = jobHistory.Employee.Email,
                 Department = jobHistory.Department,

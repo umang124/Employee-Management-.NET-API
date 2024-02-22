@@ -2,6 +2,7 @@
 {
     public class JobHistoryGetDTO
     {
+        public int Id { get; set; }
         public string EmployeeName { get; set; }
         public string Email { get; set; }
         public string Department { get; set; }

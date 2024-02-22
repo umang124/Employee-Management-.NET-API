@@ -80,6 +80,35 @@ namespace Employee_Management_System_Net_Core_API.Migrations
                     b.ToTable("Genders");
                 });
 
+            modelBuilder.Entity("Employee_Management_System_Net_Core_API.Models.HighlyRatedMaleEmployees", b =>
+                {
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EvaluationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GenderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.ToTable("HighlyRatedMaleEmployees");
+                });
+
             modelBuilder.Entity("Employee_Management_System_Net_Core_API.Models.JobHistory", b =>
                 {
                     b.Property<int>("Id")
