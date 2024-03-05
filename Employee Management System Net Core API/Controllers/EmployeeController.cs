@@ -215,5 +215,12 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             var highRatedMaleEmployees = await _db.HighlyRatedMaleEmployees.FromSqlRaw("EXEC GetHighlyRatedMaleEmployees").ToListAsync();
             return Ok(highRatedMaleEmployees);
         }
+
+        [HttpGet("FemaleEmployeeWithLowRating")]
+        public async Task<IActionResult> GetLowRatedFemaleEmployees()
+        {
+            var lowRatedFemaleEmployees = await _db.LowRatedFemaleEmployees.FromSqlRaw("EXEC GetLowRatedFemaleEmployees").ToListAsync();
+            return Ok(lowRatedFemaleEmployees);
+        }
     }
 }

@@ -61,66 +61,87 @@ BEGIN
 END;
 
 -- Find female employees with low ratings
-SELECT
-	E.Id,
-	E.FirstName,
-	E.LastName,
-	E.GenderId,
-	PE.EvaluationDate,
-	PE.Rating,
-	PE.Comments
-FROM
-    Employees E
-JOIN
-    PerformanceEvaluations PE ON E.Id = PE.EmployeeID
-WHERE
-    E.GenderId = 2
-    AND PE.Rating < 4;
+CREATE PROCEDURE GetLowRatedFemaleEmployees
+AS
+BEGIN
+	SELECT
+		E.Id,
+		E.FirstName,
+		E.LastName,
+		E.GenderId,
+		PE.EvaluationDate,
+		PE.Rating,
+		PE.Comments
+	FROM
+		Employees E
+	JOIN
+		PerformanceEvaluations PE ON E.Id = PE.EmployeeID
+	WHERE
+		E.GenderId = 2
+		AND PE.Rating < 4
+END;
 
 
 -- Find employees within the age range of 30 to 35
-SELECT
-    Id,
-    FirstName,
-    LastName,
-    DateOfBirth,
-    GenderId
-FROM
-    Employees
-WHERE
-    DATEDIFF(YEAR, DateOfBirth, GETDATE()) BETWEEN 30 AND 35;
+CREATE PROCEDURE GetEmployeesBetween30And35
+AS
+BEGIN
+	SELECT
+		Id,
+		FirstName,
+		LastName,
+		DateOfBirth,
+		GenderId
+	FROM
+		Employees
+	WHERE
+		DATEDIFF(YEAR, DateOfBirth, GETDATE()) BETWEEN 30 AND 35
+END;
 
 -- Select all employees by their age
-SELECT
-	e.FirstName, 
-	e.LastName,
-	DATEDIFF(YEAR, DateOfBirth, GETDATE()) Age,
-	G.Name Gender
-FROM
-	Employees E
-INNER JOIN 
-	Genders G ON E.GenderId = G.Id;
+CREATE PROCEDURE GetEmployeesByAge
+AS 
+BEGIN
+	SELECT
+		e.FirstName, 
+		e.LastName,
+		DATEDIFF(YEAR, DateOfBirth, GETDATE()) Age,
+		G.Name Gender
+	FROM
+		Employees E
+	INNER JOIN 
+		Genders G ON E.GenderId = G.Id
+END;
 
 
 -- Retrieve current job positions
-SELECT E.Id, E.FirstName, E.LastName, JH.Department, JH.Position
-FROM Employees E
-JOIN JobHistories JH ON E.Id = JH.EmployeeID
-WHERE JH.EndDate IS NULL; 
+CREATE PROCEDURE EmployeesWithCurrentJobPosition
+AS
+BEGIN
+	SELECT E.Id, E.FirstName, E.LastName, JH.Department, JH.Position
+	FROM Employees E
+	JOIN JobHistories JH ON E.Id = JH.EmployeeID
+	WHERE JH.EndDate IS NULL
+END;
 
 -- Count the number of employees in each department
-SELECT Department, COUNT(*) AS EmployeeCount
-FROM JobHistories
-GROUP BY Department;
+CREATE PROCEDURE CountEmployeesInEachDepartment
+AS
+BEGIN
+	SELECT Department, COUNT(*) AS EmployeeCount
+	FROM JobHistories
+	GROUP BY Department
+END;
 
 -- Calculate average rating for each employee
-SELECT EmployeeId, AVG(Rating) AS AverageRating
-FROM PerformanceEvaluations
-GROUP BY EmployeeId;
 
-
-
-
+CREATE PROCEDURE AVGRATING
+AS
+BEGIN
+	SELECT EmployeeId, AVG(Rating) AS AverageRating
+	FROM PerformanceEvaluations
+	GROUP BY EmployeeId
+END;
 
 
 EXEC GetHighlyRatedMaleEmployees;

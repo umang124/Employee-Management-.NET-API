@@ -15,5 +15,6 @@ namespace Employee_Management_System_Net_Core_API.Data
         public DbSet<PerformanceEvaluation> PerformanceEvaluations { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<HighlyRatedMaleEmployees> HighlyRatedMaleEmployees { get; set; }
+        public DbSet<LowRatedFemaleEmployees> LowRatedFemaleEmployees { get; set; }
     }
 }
