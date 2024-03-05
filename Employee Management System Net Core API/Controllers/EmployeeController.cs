@@ -222,5 +222,12 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             var lowRatedFemaleEmployees = await _db.LowRatedFemaleEmployees.FromSqlRaw("EXEC GetLowRatedFemaleEmployees").ToListAsync();
             return Ok(lowRatedFemaleEmployees);
         }
+
+        [HttpGet("EmployeesBetween30And35Age")]
+        public async Task<IActionResult> GetEmployeesBetween30And35Age()
+        {
+            var employeesBetween30And35 = await _db.EmployeesBetween30And35Ages.FromSqlRaw("EXEC GetEmployeesBetween30And35").ToListAsync();
+            return Ok(employeesBetween30And35);
+        }
     }
 }

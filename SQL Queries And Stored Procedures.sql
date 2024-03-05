@@ -83,17 +83,20 @@ END;
 
 
 -- Find employees within the age range of 30 to 35
+-- DROP PROCEDURE IF EXISTS GetEmployeesBetween30And35;
 CREATE PROCEDURE GetEmployeesBetween30And35
 AS
 BEGIN
 	SELECT
-		Id,
-		FirstName,
-		LastName,
-		DateOfBirth,
-		GenderId
+		E.Id,
+		E.FirstName,
+		E.LastName,
+		FORMAT(E.DateOfBirth, 'd MMM yyyy') DateOfBirth,
+		G.Name as Gender
 	FROM
-		Employees
+		Employees E
+	INNER JOIN 
+		Genders G on G.Id = E.GenderId
 	WHERE
 		DATEDIFF(YEAR, DateOfBirth, GETDATE()) BETWEEN 30 AND 35
 END;
@@ -145,3 +148,5 @@ END;
 
 
 EXEC GetHighlyRatedMaleEmployees;
+
+EXEC GetEmployeesBetween30And35;
