@@ -229,5 +229,12 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             var employeesBetween30And35 = await _db.EmployeesBetween30And35Ages.FromSqlRaw("EXEC GetEmployeesBetween30And35").ToListAsync();
             return Ok(employeesBetween30And35);
         }
+
+        [HttpGet("EmployeesWithCurrentJobPosition")]
+        public async Task<IActionResult> GetEmployeesWithCurrentJobPosition()
+        {
+            var employeesWithCurrentJobPosition = await _db.EmployeesWithCurrentJobPositions.FromSqlRaw("EXEC EmployeesWithCurrentJobPosition").ToListAsync();
+            return Ok(employeesWithCurrentJobPosition);
+        }
     }
 }
