@@ -236,5 +236,12 @@ namespace Employee_Management_System_Net_Core_API.Controllers
             var employeesWithCurrentJobPosition = await _db.EmployeesWithCurrentJobPositions.FromSqlRaw("EXEC EmployeesWithCurrentJobPosition").ToListAsync();
             return Ok(employeesWithCurrentJobPosition);
         }
+
+        [HttpGet("EmployeesAverageRating")]
+        public async Task<IActionResult> GetEmployeesAverageRating()
+        {
+            var employeesWithCurrentJobPosition = await _db.EmployeesAverageRatings.FromSqlRaw("EXEC AVGRATING").ToListAsync();
+            return Ok(employeesWithCurrentJobPosition);
+        }
     }
 }

@@ -18,5 +18,6 @@ namespace Employee_Management_System_Net_Core_API.Data
         public DbSet<LowRatedFemaleEmployees> LowRatedFemaleEmployees { get; set; }
         public DbSet<EmployeesBetween30And35Age> EmployeesBetween30And35Ages { get; set; }
         public DbSet<EmployeesWithCurrentJobPosition> EmployeesWithCurrentJobPositions { get; set; }
+        public DbSet<EmployeesAverageRating> EmployeesAverageRatings { get; set; }
     }
 }
